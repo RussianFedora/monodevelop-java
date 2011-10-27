@@ -31,7 +31,7 @@ Development package for %{name}
 %setup -q
 ##sed magic to get rid of all of the silly $prefix/lib stuff
 find . -name Makefile -or -name Makefile.in -or -name Makefile.am -or -name configure -or -name configure.in -or -name \*.pc.in \
-       -or -name \*.in -or -name \*.xml -or -name Makefile.include \
+       -or -name \*.in -or -name \*.xml -or -name Makefile.include -or -name \*.make \
        | while read f ;
          do
            sed -i -e 's!$(prefix)/lib/!%{_libdir}/!' "$f"
@@ -42,8 +42,6 @@ find . -name Makefile -or -name Makefile.in -or -name Makefile.am -or -name conf
 
 %build
 %{_configure} --prefix=%{_prefix}
-LIBDIR=%{_libdir}
-echo "libdir=$LIBDIR" >> config.make
 make %{?_smp_mflags}
 
 %install
