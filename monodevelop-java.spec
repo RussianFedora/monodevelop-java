@@ -12,6 +12,7 @@ BuildRequires:  monodevelop-devel >= 2.8.1
 BuildRequires:  mono-addins-devel
 BuildRequires:  gtk-sharp2-devel
 BuildRequires:  gnome-desktop-sharp-devel
+BuildRequires:  gettext
 Requires:       monodevelop >= 2.8.1
 
 
@@ -41,7 +42,7 @@ find . -name Makefile -or -name Makefile.in -or -name Makefile.am -or -name conf
 
 %build
 %{_configure} --prefix=%{_prefix}
-make
+make %{?_smp_mflags}
 
 %install
 rm -rf %{buildroot}
