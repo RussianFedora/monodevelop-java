@@ -42,6 +42,8 @@ find . -name Makefile -or -name Makefile.in -or -name Makefile.am -or -name conf
 
 %build
 %{_configure} --prefix=%{_prefix}
+LIBDIR=%{_libdir}
+echo "libdir=$LIBDIR" >> config.make
 make %{?_smp_mflags}
 
 %install
@@ -55,6 +57,7 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root,-)
 %{_libdir}/monodevelop/AddIns/JavaBinding/JavaBinding*
+%doc COPYING
 
 %files devel
 %defattr(-,root,root,-)
