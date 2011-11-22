@@ -1,7 +1,9 @@
-Summary:        MonoDevelop java Addin
 Name:           monodevelop-java
 Version:        2.8.1
-Release:        1%{?dist}.R
+Release:        2%{?dist}.R
+Summary:        MonoDevelop java Addin
+Summary(ru):    Дополнение Java для MonoDevelop
+
 License:        GPLv2+
 Group:          Development/Tools
 Source:         http://download.mono-project.com/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -19,13 +21,20 @@ Requires:       monodevelop >= 2.8.1
 %description
 Java Addin for MonoDevelop.
 
+%description -l ru
+Биндинги Java для MonoDevelop.
+
 %package devel
 Summary:        Development files for %{name}
+Summary(ru):    Файлы разработки для %{name}
 Requires:       %{name} = %{version}-%{release} pkgconfig
 Group:          Development/Libraries
 
 %description devel
 Development package for %{name}
+
+%description devel -l ru
+Пакет разработки для %{name}
 
 %prep
 %setup -q
@@ -62,5 +71,8 @@ rm -rf %{buildroot}
 %{_libdir}/pkgconfig/monodevelop-java.pc
 
 %changelog
+* Tue Nov 22 2011 Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.1-2.R
+- Added description in russian language
+
 * Thu Oct 27 2011 - Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.1-1.R
 - Update to 2.8.1
