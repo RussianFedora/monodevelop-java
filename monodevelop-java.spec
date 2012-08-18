@@ -1,13 +1,12 @@
 Name:           monodevelop-java
-Version:        2.8.5
-Release:        1%{?dist}.R
+Version:        2.8.8.4
+Release:        1%{?dist}
 Summary:        MonoDevelop java Addin
 Summary(ru):    Дополнение Java для MonoDevelop
 
 License:        GPLv2+
 Group:          Development/Tools
 Source:         http://download.mono-project.com/sources/%{name}/%{name}-%{version}.tar.bz2
-Source100:      README.RFRemix
 URL:            http://www.monodevelop.com
 
 BuildRequires:  mono-devel >= 2.6
@@ -28,7 +27,7 @@ Java Addin for MonoDevelop.
 %package devel
 Summary:        Development files for %{name}
 Summary(ru):    Файлы разработки для %{name}
-Requires:       %{name} = %{version}-%{release} pkgconfig
+Requires:       %{name}%{?_isa} = %{version}-%{release} pkgconfig
 Group:          Development/Libraries
 
 %description devel
@@ -53,26 +52,22 @@ find . -name Makefile -or -name Makefile.in -or -name Makefile.am -or -name conf
 %build
 %{_configure} --prefix=%{_prefix}
 make %{?_smp_mflags}
-cp %{SOURCE100} .
 
 %install
-rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
 %find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root,-)
 %{_libdir}/monodevelop/AddIns/JavaBinding/JavaBinding*
-%doc COPYING README.RFRemix
+%doc COPYING
 
 %files devel
-%defattr(-,root,root,-)
 %{_libdir}/pkgconfig/monodevelop-java.pc
 
 %changelog
+* Sat Aug 18 2012 - Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.8.4-1.R
+- Update to 2.8.8.4
+
 * Tue Jan 24 2012 - Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.5-1.R
 - Update to 2.8.5
 
