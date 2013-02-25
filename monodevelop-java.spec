@@ -65,7 +65,7 @@ make install DESTDIR=%{buildroot}
 %{_libdir}/pkgconfig/monodevelop-java.pc
 
 %changelog
-* Sat Aug 18 2012 - Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.8.4-2.R
+* Mon Feb 25 2013 - Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.8.4-2.R
 - Fresh build
 
 * Sat Aug 18 2012 - Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.8.4-1.R
