@@ -1,6 +1,6 @@
 Name:           monodevelop-java
 Version:        2.8.8.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        MonoDevelop java Addin
 Summary(ru):    Дополнение Java для MonoDevelop
 
@@ -65,6 +65,9 @@ make install DESTDIR=%{buildroot}
 %{_libdir}/pkgconfig/monodevelop-java.pc
 
 %changelog
+* Sat Aug 18 2012 - Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.8.4-2.R
+- Fresh build
+
 * Sat Aug 18 2012 - Vasiliy N. Glazov <vascom2@gmail.com> - 2.8.8.4-1.R
 - Update to 2.8.8.4
 
